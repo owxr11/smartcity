@@ -8,10 +8,10 @@ const logoutBnt = document.getElementById('logoutBtn')
 
 observeAuth(async (user) => {
     if (!user) {
-        window.location.href = './../../login.hmtl'
+        window.location.href = '../../login.hmtl'
         return
     }
-    const profile = await getCurrentUserProfile(user.id)
+    const profile = await getCurrentUserProfile(user.uid)
 
     const resolvedName = profile?.name || 'Usuario'
     const resolvedEmail = profile?.email || '--'
@@ -26,5 +26,5 @@ observeAuth(async (user) => {
 
 logoutBnt?.addEventListener('click', async () => {
     await logoutUser()
-    window.location.href = './../../login.html'
+    window.location.href = '../../login.html'
 })

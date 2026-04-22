@@ -23,7 +23,7 @@ export function showAlert(elementId, message) {
 export function hideAlert(elementId) {
     const alert = document.getElementById(elementId)
     if (!alert) return
-    alert.classList.remove('d-none')
+    alert.classList.add('d-none')
     alert.textContent = ''
 }
 
@@ -49,8 +49,8 @@ export async function loginUser({ email, password }) {
 
 
 export async function getCurrentUserProfile(uid) {
-    const doc = doc(db, 'users', uid)
-    const user = await getDoc(doc)
+    const docuser = doc(db, 'users', uid)
+    const user = await getDoc(docuser)
 
     if (!user.exists()) return null
 
@@ -66,24 +66,24 @@ export async function logoutUser() {
 }
 
 export function getFirebaseErrorMessage(error) {
-    const code = error?.cod || ''
+    const code = error?.code || ''
     switch (code) {
-        case 'auth/email.already-in-use':
-            return 'Este correo ya esta registrado';
+        case 'auth/email-already-in-use':
+            return 'Este correo ya está registrado';
         case 'auth/invalid-email':
             return 'El correo no es válido';
         case 'auth/weak-password':
-            return 'La contraseña debe de tener como mínimo 6 caracterres';
-        case 'auth/ invalid-credential':
-            return ' Correo o contraseña inválida';
-        case ' auth/user-not-found':
+            return 'La contraseña debe tener mínimo 6 caracteres';
+        case 'auth/invalid-credential':
+            return 'Correo o contraseña inválidos';
+        case 'auth/user-not-found':
             return 'No existe una cuenta con este correo';
         case 'auth/wrong-password':
-            return 'El password es incorrecto';
-        case 'auth/too-many-request':
-            return 'Demasiados intentos, intenta más tarde'
+            return 'La contraseña es incorrecta';
+        case 'auth/too-many-requests':
+            return 'Demasiados intentos, intenta más tarde';
         default:
-            return error?.message || 'Error inesperado'
+            return error?.message || 'Error inesperado';
     }
 }
 

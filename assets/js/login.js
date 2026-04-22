@@ -7,12 +7,12 @@ const loginBtn = document.getElementById('loginBtn')
 
 observeAuth((user) => {
     if (user) {
-        window.location.href = './../../dashboard.html'
+        window.location.href = '../../dashboard.html'
     }
 })
 
 
-form?.addEventListener('submit', (e) => {
+form?.addEventListener('submit', async (e) => {
     e.preventDefault()
 
     hideAlert('loginAlert')
@@ -29,18 +29,18 @@ form?.addEventListener('submit', (e) => {
         setButtonLoading(
             loginBtn,
             true,
-            '<i> class="bi bi-arrow-in-right me-2"</i>Iniciar Sesión',
+            '<i class="bi bi-arrow-in-right me-2"></i>Iniciar Sesión',
             'Iniciando Sesión'
         )
         await loginUser({ email, password })
-        window.location.href = './../../dashboard.html'
+        window.location.href = '../../dashboard.html'
     } catch (error) {
         showAlert('loginAlert', getFirebaseErrorMessage(error))
     } finally {
         setButtonLoading(
             loginBtn,
             false,
-            '<i> class="bi bi-arrow-in-right me-2"</i>Iniciar Sesión'
+            '<i class="bi bi-arrow-in-right me-2"></i>Iniciar Sesión'
         )
     }
 })
