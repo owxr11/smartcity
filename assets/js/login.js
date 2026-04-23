@@ -5,7 +5,13 @@ const emailInput = document.getElementById('loginEmail')
 const passwordInput = document.getElementById('loginPassword')
 const loginBtn = document.getElementById('loginBtn')
 
+let isInitialCheck = true
+
 observeAuth((user) => {
+    if (isInitialCheck) {
+        isInitialCheck = false
+        return
+    }
     if (user) {
         window.location.href = '../../dashboard.html'
     }

@@ -1,17 +1,17 @@
 :root {
-    --ci-primary: #0D6EFD;
-    --ci-primary-dark: #0A58CA;
-    --ci-bg: #F5F7FB;
-    --ci-text: #1F2937;
-    --ci-muted: #6B7280;
-    --ci-card: #FFFFFF;
-    --ci-border: #E5E7EB;
+    --ci-primary: #0d6efd;
+    --ci-primary-dark: #0a58ca;
+    --ci-bg: #f5f7fb;
+    --ci-text: #1f2937;
+    --ci-muted: #6b7280;
+    --ci-card: #ffffff;
+    --ci-border: #e5e7eb;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--ci-bg);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: var(--ci-text);
+    background-color: var(--ci-bg);
 }
 
 .auth-page {
@@ -20,8 +20,8 @@ body {
 
 .auth-wrapper {
     background:
-        radial-gradient(circle at top left, rgba(255, 255, 225, 0.5), transparent 30%),
-        linear-gradient(135deg, var(--ci-primary), #6EA8FE);
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.25), transparent 30%),
+        linear-gradient(135deg, var(--ci-primary), #6ea8fe);
     padding: 2rem 0;
 }
 
@@ -36,23 +36,23 @@ body {
     width: 72px;
     height: 72px;
     margin: 0 auto;
-    background: rgba(13, 110, 253, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    background: rgba(13, 110, 253, 0.10);
     color: var(--ci-primary);
+    font-size: 2rem;
 }
 
 .form-control {
-    border-radius: .9rem;
+    border-radius: 0.9rem;
     border: 1px solid var(--ci-border);
 }
 
 .form-control:focus {
     box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
-    border-radius: rgba(13, 110, 253, 0.5);
+    border-color: rgba(13, 110, 253, 0.5);
 }
 
 .btn {
@@ -61,11 +61,11 @@ body {
 
 .dashboard-page {
     min-height: 100vh;
-    background: linear-gradient(to bottom, #EEF4FF 0%, #F7F9FC 180px, #F5F7FB 100%);
+    background: linear-gradient(to bottom, #eef4ff 0%, #f7f9fc 180px, #f5f7fb 100%);
 }
 
 .hero-panel {
-    background: var(--ci-card);
+    background: #fff;
     border: 1px solid rgba(13, 110, 253, 0.08);
     border-radius: 1.5rem;
     padding: 2rem;
@@ -73,8 +73,8 @@ body {
 }
 
 .profile-summary {
-    background: #F8FBFF;
-    border: 1px solid #D8E8FF;
+    background: #f8fbff;
+    border: 1px solid #dbe8ff;
     border-radius: 1.25rem;
     padding: 1.25rem;
 }
@@ -91,16 +91,99 @@ body {
     font-size: 1.2rem;
 }
 
-.card-info {
-    border: none;
-    border-radius: 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+.info-card {
+    border: 0;
+    border-radius: 1.25rem;
     box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card-info:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.10);
+}
+
+.section-kicker {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.weather-loading {
+    background: #f8fbff;
+    border: 1px solid #dbe8ff;
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+}
+
+.weather-main-card {
+    background: linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
+    border: 1px solid #dbe8ff;
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.weather-icon-wrap {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: rgba(13, 110, 253, 0.10);
+    color: var(--ci-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-main-icon {
+    font-size: 2.25rem;
+}
+
+.weather-city {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.weather-desc {
+    min-height: 24px;
+}
+
+.weather-temp {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.metric-card {
+    background: #ffffff;
+    border: 1px solid var(--ci-border);
+    border-radius: 1rem;
+    padding: 1rem;
+    height: 100%;
+    box-shadow: 0 8px 16px rgba(15, 23, 42, 0.04);
+}
+
+.metric-icon {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: var(--ci-muted);
+    margin-bottom: 0.35rem;
+}
+
+.metric-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.small-value {
+    font-size: 0.95rem;
+    line-height: 1.35;
 }
 
 @media (max-width: 576px) {
@@ -109,8 +192,10 @@ body {
     }
 
     .hero-panel {
-        padding: 1.25rem 0;
+        padding: 1.25rem;
     }
 
-
+    .weather-temp {
+        font-size: 2.3rem;
+    }
 }
