@@ -9,6 +9,7 @@ import {
     doc,
     setDoc,
     getDoc,
+    updateDoc, // Agregado para actualizar perfil
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
 
@@ -63,6 +64,14 @@ export async function getCurrentUserProfile(uid) {
     if (!snap.exists()) return null;
 
     return snap.data();
+}
+
+export async function upadateCurrentUserProfile(uid, data) {
+    const user = doc(db, 'users', uid)
+    await updateDoc(user, {
+        ...data,
+        updatedAt: serverTimestamp()
+    });
 }
 
 export function observeAuth(callback) {
