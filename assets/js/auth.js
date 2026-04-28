@@ -66,7 +66,7 @@ export async function getCurrentUserProfile(uid) {
     return snap.data();
 }
 
-export async function upadateCurrentUserProfile(uid, data) {
+export async function updateCurrentUserProfile(uid, data) {
     const user = doc(db, 'users', uid)
     await updateDoc(user, {
         ...data,
